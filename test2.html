@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Adding some custom styles for the quantity buttons */
+      .quantity-button {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+      }
+    </style>
+  </head>
+  <body class="flex justify-center">
+    <div class="flex justify-evenly w-[100%] bg-black">
+      <div class="flex justify-center items-center w-[40%] h-[90%] bg-blue-600">
+        <img src="moon.webp" class="w-[450px] h-[600px]" alt="" />
+      </div>
+      <div class="w-[40%] bg-red-600">
+        <h1 class="block text-[48px] ml-0 mr-0 font-bold">
+          GreatGreat Edited bro nice edithadskflasasdfasdasd
+        </h1>
+        <span class="inline text-[25px] border p-[3px] border-solid border-[gray] ;">
+          SKU:
+        </span>
+        <span class="text-[25px]">Great</span>
+        <p class="block text-[25px] mx-0 my-[1em];">GreatGreatGreat</p>
+        <p class="block text-[30px] text-[blue] mx-0 my-[1em];">Rs. 10</p>
+        <p class="block text-[25px] font-bold mt-[10px] mx-0 ;">
+          Brand:
+          <span class="inline border p-[3px] font-medium border-solid border-[gray] ;">
+            Test Brand
+          </span>
+        </p>
+        <p class="block text-[25px] font-bold mt-[20px] mx-0 ;">
+          Category:
+          <span class="inline border p-[3px] font-medium border-solid border-[gray] ;">
+            Drone
+          </span>
+        </p>
+        <hr class="mt-[20px] h-[1px];" />
+
+        <!-- Quantity Controls -->
+        <div class="flex items-center mt-[20px]">
+          <button id="decrement" class="quantity-button bg-gray-300 p-[5px] rounded-full mr-[5px]">
+            <span class="text-[25px]">-</span>
+          </button>
+          <span id="quantity" class="text-[25px] border p-[3px] border-solid border-[gray] w-[50px] text-center">1</span>
+          <button id="increment" class="quantity-button bg-gray-300 p-[5px] rounded-full ml-[5px]">
+            <span class="text-[25px]">+</span>
+          </button>
+        </div>
+
+        <div id="out_of_stock" class="mt-[30px] hidden flex-col items-center justify-center bg-yellow-300 rounded-[15px]">
+          <h3 class="block text-[35px] ml-0 mr-0 font-bold text-center">
+            Out of stock <br />
+          </h3>
+          <span class="text-[20px] text-center">
+            This product is currently unavailable. Sign up to be notified when
+            it's back in stock.
+          </span>
+          <div>
+            <button class="bg-blue-600 p-[20px] rounded-15px">
+              <span class="text-[18px] text-center">Go to home</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for quantity buttons
+      const decrementButton = document.getElementById('decrement');
+      const incrementButton = document.getElementById('increment');
+      const quantityDisplay = document.getElementById('quantity');
+
+      decrementButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityDisplay.innerText);
+        if (currentQuantity > 1) {
+          quantityDisplay.innerText = --currentQuantity;
+        }
+      });
+
+      incrementButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityDisplay.innerText);
+        quantityDisplay.innerText = ++currentQuantity;
+      });
+    </script>
+  </body>
+</html>
